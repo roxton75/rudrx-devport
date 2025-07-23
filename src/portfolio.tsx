@@ -264,7 +264,7 @@ export default function Portfolio() {
             Welcome to my <span className="text-orange-500">DevPort</span>
           </h3>
           <p className="text-gray-400 text-sm md:text-base text-justify">
-            Im a passionate developer cum designer with a focus on creating efficient and elegant solutions. With
+            I'm a passionate developer cum designer with a focus on creating efficient and elegant solutions. With
             experience in Android development and a strong foundation in 3D and other programming languages, I enjoy
             tackling challenges and continuously expanding my skill set. Whether it&apos;s building mobile applications or
             exploring new technologies, I&apos;m always eager to learn and innovate.
