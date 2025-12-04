@@ -277,7 +277,7 @@ export default function Portfolio() {
           </div>
         </div>
         <div className="relative h-[410px] md:h-[400px] lg:h-[550px] flex items-center justify-center order-1 lg:order-2">
-          <Image src="./images/devbg.png" alt="Developer Illustration" fill className="object-contain" />
+          <Image src="/images/devbg.png" alt="Developer Illustration" fill className="object-contain" />
         </div>
       </section>
       <div className="w-full border-t border-zinc-800" />
@@ -395,7 +395,7 @@ export default function Portfolio() {
           </div>
           <div className="flex-shrink-0 w-[300px] h-[300px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] relative mx-auto order-1 lg:order-2">
             <div className="absolute inset-0 rounded-full overflow-hidden">
-              <Image src="./images/dp.jpg" alt="Profile" fill className="object-cover" />
+              <Image src="/images/dp.jpg" alt="Profile" fill className="object-cover" />
             </div>
           </div>
         </div>
@@ -585,4 +585,5 @@ export default function Portfolio() {
     </div>
   )
 }
+
 
