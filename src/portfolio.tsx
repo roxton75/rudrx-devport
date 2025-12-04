@@ -2,25 +2,18 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Github, Instagram, Linkedin, Mail, User, MessageSquare, Menu, X } from "lucide-react"  
+import { Github, Instagram, Linkedin, Mail, User, MessageSquare, Menu, X } from "lucide-react"
 import React, { useEffect, useRef, useState } from "react"
 import Script from "next/script"
 import { Toast } from "./components/toast"
 import Typed from "typed.js"
+import emailjs from "@emailjs/browser";
 
 declare global {
   interface Window {
     Typed: typeof import('typed.js');
   }
 }
-
-declare global {
-  interface Window {
-    emailjs: typeof import("@emailjs/browser");
-  }
-}
-
-
 
 
 export default function Portfolio() {
@@ -46,7 +39,7 @@ export default function Portfolio() {
     const loadTyped = () => {
       if (typeof window !== "undefined" && typedRef.current && window.Typed) {
         new Typed(typedRef.current, {
-          strings: ["3D Artist,", "Graphic Designer."],
+          strings: ["3D Artist,", "UI/UX Enthusiast."],
           typeSpeed: 65,
           backSpeed: 50,
           loop: true,
@@ -77,7 +70,7 @@ export default function Portfolio() {
   }
 
   // Function to handle smooth scrolling with animation
-  const scrollToSection = (sectionId:string) => {
+  const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
       element.scrollIntoView({
@@ -89,7 +82,7 @@ export default function Portfolio() {
   }
 
   // Handle form input changes
-  const handleInputChange = (e:React.ChangeEvent<HTMLInputElement|HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({
       ...prev,
@@ -114,66 +107,53 @@ export default function Portfolio() {
     }))
   }
 
-  // Handle form submission with EmailJS
-  const handleSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+  // Initialize EmailJS once when the component mounts
+  useEffect(() => {
+    emailjs.init("HBml8i9QDqfK_05Il"); // your public key
+  }, []);
+
+  // // Handle form submission with EmailJS
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
     try {
-      // Check if EmailJS is loaded
-      if (typeof window.emailjs === "undefined") {
-        throw new Error("EmailJS not loaded")
-      }
+      const payload = {
+        from_name: formData.name,
+        from_email: formData.from,
+        subject: formData.subject,
+        message: formData.message,
+        timestamp: new Date().toLocaleString(),
+        user_agent: typeof navigator !== "undefined" ? navigator.userAgent : "unknown",
+        header_url: "https://roxton75.github.io/rudrx-devport/images/header.png"
+      };
 
-      // Send email using EmailJS
-      const result = await window.emailjs.send(
-        "service_692qx9r", // Your Service ID
-        "template_pszrrw8", // Your Template ID
-        {
-          from_name: formData.name,
-          from_email: formData.from,
-          subject: formData.subject,
-          message: formData.message,
-          to_email: "workrudrx75@gmail.com",
-        },
-        "HBml8i9QDqfK_05Il", // Your Public Key
-      )
+      const result = await emailjs.send(
+        "service_692qx9r",
+        "template_pszrrw8",
+        payload
+      );
 
       if (result.status === 200) {
-        showToast("Message sent successfully! I'll get back to you soon.", "success")
-        // Reset form
-        setFormData({
-          from: "",
-          name: "",
-          subject: "",
-          message: "",
-        })
+        showToast("Message sent successfully! I'll get back to you soon.", "success");
+        setFormData({ from: "", name: "", subject: "", message: "" });
       } else {
-        throw new Error("Failed to send email")
+        throw new Error("EmailJS returned non-200 status");
       }
-    } catch (error) {
-      console.error("EmailJS Error:", error)
-      showToast("Failed to send message. Please try again or contact me directly.", "error")
+    } catch (err) {
+      console.error("EmailJS Error:", err);
+      showToast("Failed to send message. Please try again later.", "error");
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
+
+  
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* Add Typed.js script */}
       <Script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js" onLoad={handleScriptLoad} />
-
-      {/* Add EmailJS script */}
-      <Script
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-        onLoad={() => {
-          // Initialize EmailJS with your public key
-          if (typeof window.emailjs !== "undefined") {
-            window.emailjs.init("HBml8i9QDqfK_05Il") // Your Public Key
-          }
-        }}
-      />
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black">
@@ -264,7 +244,7 @@ export default function Portfolio() {
             Welcome to my <span className="text-orange-500">DevPort</span>
           </h3>
           <p className="text-gray-400 text-sm md:text-base text-justify">
-            I&apos;m a passionate developer cum designer with a focus on creating efficient and elegant solutions. With
+            Im a passionate developer cum designer with a focus on creating efficient and elegant solutions. With
             experience in Android development and a strong foundation in 3D and other programming languages, I enjoy
             tackling challenges and continuously expanding my skill set. Whether it&apos;s building mobile applications or
             exploring new technologies, I&apos;m always eager to learn and innovate.
@@ -297,7 +277,7 @@ export default function Portfolio() {
           </div>
         </div>
         <div className="relative h-[410px] md:h-[400px] lg:h-[550px] flex items-center justify-center order-1 lg:order-2">
-          <Image src="./images/devbg.png" alt="Developer Illustration" fill className="object-contain" />
+          <Image src="/images/devbg.png" alt="Developer Illustration" fill className="object-contain" />
         </div>
       </section>
       <div className="w-full border-t border-zinc-800" />
@@ -308,13 +288,17 @@ export default function Portfolio() {
           <p className="text-gray-400 text-sm md:text-base">What I&apos;ve done so far</p>
           <h2 className="text-2xl md:text-3xl font-bold">Work Experience</h2>
         </div>
+
         <div className="space-y-8 md:space-y-12">
+
           <div className="relative flex flex-col md:flex-row items-start gap-4 md:gap-6">
             {/* Vertical line container for first experience */}
             <div className="relative z-10 flex-shrink-0 hidden md:block">
               <div className="w-3 h-3 rounded-full bg-blue-500 border-2 border-black"></div>
               <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-0.5 h-48 bg-blue-500"></div>
             </div>
+
+
             <div className="flex-1 flex flex-col md:flex-row gap-4 md:gap-40">
               <div className="md:w-80 md:pr-6 flex-shrink-0">
                 <div className="flex items-center gap-3 md:block">
@@ -327,6 +311,7 @@ export default function Portfolio() {
                   </div>
                 </div>
               </div>
+
               <div className="flex-1 space-y-2 text-gray-300 text-sm md:text-base ml-6 md:ml-0">
                 <p className="mb-2">Internship in Android development :</p>
                 <p>• Optimized UI and UX design elements based on client&apos;s feedback reviews.</p>
@@ -355,7 +340,11 @@ export default function Portfolio() {
                   <div className="w-3 h-3 rounded-full bg-blue-500 border-2 border-black md:hidden flex-shrink-0"></div>
                   <div>
                     <h3 className="text-lg md:text-xl font-bold">Freelancer 3D Artist</h3>
-                    <p className="text-gray-400 text-sm md:text-base">Client based, September 2022 - February 2023</p>
+                    <p className="text-gray-400 text-sm md:text-base">
+                      Client based, Remote
+                      <br />
+                      September 2022 - February 2023
+                    </p>
                   </div>
                 </div>
               </div>
@@ -406,7 +395,7 @@ export default function Portfolio() {
           </div>
           <div className="flex-shrink-0 w-[300px] h-[300px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] relative mx-auto order-1 lg:order-2">
             <div className="absolute inset-0 rounded-full overflow-hidden">
-              <Image src="./images/dp.jpg" alt="Profile" fill className="object-cover" />
+              <Image src="/images/dp.jpg" alt="Profile" fill className="object-cover" />
             </div>
           </div>
         </div>
