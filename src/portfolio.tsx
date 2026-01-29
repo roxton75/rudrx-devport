@@ -408,10 +408,10 @@ export default function Portfolio() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {[
             {
-              title: "Text-to-Speech",
+              title: "SandPay-API",
               description:
-                "This project was built in Python using pyttsx3 & tkinter libraries. It performs text-to-speech using the system voice and pitch with a simple GUI.",
-              link: "https://github.com/roxton75/Text-to-Speech-in-Python"
+                "This is a Fake Payment Gateway especially build for testing so that a developer can mimics a paymet gateway intergration for free.",
+              link: "https://github.com/roxton75/sandpay-api"
             },
             {
               title: "Music Player: Audify",
