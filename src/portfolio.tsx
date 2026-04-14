@@ -414,10 +414,10 @@ export default function Portfolio() {
               link: "https://github.com/roxton75/sandpay-api"
             },
             {
-              title: "Music Player: Audify",
+               title: "Bubble Brew",
               description:
-                "Audify is an offline music player developed in Android using Java and XML. It fetches and plays '.MP3' and '.WAV' files from the user's device.",
-              link: "https://github.com/roxton75/Spotify-Clone-Audify"
+                "A mobile app for ordering and managing bubble tea orders, built with React Native. It features a user-friendly interface, customizable drink options, and real-time order tracking.",
+              link: "https://github.com/roxton75/BubbleBrew-Expo-React-Native"
             },
             {
               title: "Image Steganography",
