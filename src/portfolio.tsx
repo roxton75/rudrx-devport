@@ -1,38 +1,44 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import Link from "next/link"
-import { Github, Instagram, Linkedin, Mail, User, MessageSquare, Menu, X } from "lucide-react"
-import React, { useEffect, useRef, useState } from "react"
-import Script from "next/script"
-import { Toast } from "./components/toast"
-import Typed from "typed.js"
+import Image from "next/image";
+import Link from "next/link";
+import {
+  Github,
+  Instagram,
+  Linkedin,
+  Mail,
+  User,
+  MessageSquare,
+  Menu,
+  X,
+} from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
+import Script from "next/script";
+import { Toast } from "./components/toast";
+import Typed from "typed.js";
 import emailjs from "@emailjs/browser";
 
 declare global {
   interface Window {
-    Typed: typeof import('typed.js');
+    Typed: typeof import("typed.js");
   }
 }
 
-
 export default function Portfolio() {
-  const typedRef = useRef(null)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const typedRef = useRef(null);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     from: "",
     name: "",
     subject: "",
     message: "",
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [toast, setToast] = useState({
     isVisible: false,
     message: "",
     type: "success" as "success" | "error",
-  })
-
-
+  });
 
   useEffect(() => {
     // Initialize Typed.js after the script has loaded
@@ -44,51 +50,53 @@ export default function Portfolio() {
           backSpeed: 50,
           loop: true,
           backDelay: 1500,
-        })
+        });
       }
-    }
+    };
 
     // Check if Typed is already available
     if (typeof window !== "undefined" && window.Typed) {
-      loadTyped()
+      loadTyped();
     } else {
       // If not, we'll wait for the script to load
-      window.addEventListener("typed-script-loaded", loadTyped)
+      window.addEventListener("typed-script-loaded", loadTyped);
     }
 
     return () => {
-      window.removeEventListener("typed-script-loaded", loadTyped)
+      window.removeEventListener("typed-script-loaded", loadTyped);
       // Clean up Typed instance if needed
-    }
-  }, [])
+    };
+  }, []);
 
   // Function to notify when script is loaded
   const handleScriptLoad = () => {
     if (typeof window !== "undefined") {
-      window.dispatchEvent(new Event("typed-script-loaded"))
+      window.dispatchEvent(new Event("typed-script-loaded"));
     }
-  }
+  };
 
   // Function to handle smooth scrolling with animation
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
+    const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({
         behavior: "smooth",
         block: "start",
-      })
+      });
     }
-    setIsMenuOpen(false) // Close mobile menu after navigation
-  }
+    setIsMenuOpen(false); // Close mobile menu after navigation
+  };
 
   // Handle form input changes
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: value,
-    }))
-  }
+    }));
+  };
 
   // Show toast message
   const showToast = (message: string, type: "success" | "error") => {
@@ -96,16 +104,16 @@ export default function Portfolio() {
       isVisible: true,
       message,
       type,
-    })
-  }
+    });
+  };
 
   // Hide toast message
   const hideToast = () => {
     setToast((prev) => ({
       ...prev,
       isVisible: false,
-    }))
-  }
+    }));
+  };
 
   // Initialize EmailJS once when the component mounts
   useEffect(() => {
@@ -124,18 +132,23 @@ export default function Portfolio() {
         subject: formData.subject,
         message: formData.message,
         timestamp: new Date().toLocaleString(),
-        user_agent: typeof navigator !== "undefined" ? navigator.userAgent : "unknown",
-        header_url: "https://roxton75.github.io/rudrx-devport/images/header.png"
+        user_agent:
+          typeof navigator !== "undefined" ? navigator.userAgent : "unknown",
+        header_url:
+          "https://roxton75.github.io/rudrx-devport/images/header.png",
       };
 
       const result = await emailjs.send(
         "service_692qx9r",
         "template_pszrrw8",
-        payload
+        payload,
       );
 
       if (result.status === 200) {
-        showToast("Message sent successfully! I'll get back to you soon.", "success");
+        showToast(
+          "Message sent successfully! I'll get back to you soon.",
+          "success",
+        );
         setFormData({ from: "", name: "", subject: "", message: "" });
       } else {
         throw new Error("EmailJS returned non-200 status");
@@ -148,8 +161,6 @@ export default function Portfolio() {
     }
   };
 
-
-  
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* Add Typed.js script */}
@@ -268,8 +279,8 @@ export default function Portfolio() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <Link
-              href="/resume/Rudraksh_Ramekar_CV.pdf"
-              download
+              href="/CV/Rudraksh_Ramekar_CV.pdf"
+              download="Rudraksh_Ramekar_CV.pdf"
               className="bg-purple-600 hover:bg-purple-700 text-white px-4 md:px-6 py-3 rounded-lg transition-colors flex items-center justify-center gap-2 text-sm md:text-base"
             >
               <svg
@@ -287,6 +298,7 @@ export default function Portfolio() {
               </svg>
               Download CV
             </Link>
+
             <Link
               href="https://github.com/roxton75"
               target="_blank"
