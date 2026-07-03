@@ -321,16 +321,16 @@ export default function Portfolio() {
         <div className="space-y-8 md:space-y-12">
           <div className="relative flex flex-col md:flex-row items-start gap-4 md:gap-6">
             {/* Vertical line container for first experience */}
-            <div className="relative z-10 flex-shrink-0 hidden md:block">
+            <div className="relative z-10 shrink-0 hidden md:block">
               <div className="w-3 h-3 rounded-full bg-blue-500 border-2 border-black"></div>
               <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-0.5 h-48 bg-blue-500"></div>
             </div>
 
             <div className="flex-1 flex flex-col md:flex-row gap-4 md:gap-40">
-              <div className="md:w-80 md:pr-6 flex-shrink-0">
+              <div className="md:w-80 md:pr-6 shrink-0">
                 <div className="flex items-center gap-3 md:block">
                   {/* Mobile timeline dot */}
-                  <div className="w-3 h-3 rounded-full bg-blue-500 border-2 border-black md:hidden flex-shrink-0"></div>
+                  <div className="w-3 h-3 rounded-full bg-blue-500 border-2 border-black md:hidden shrink-0"></div>
                   <div>
                     <h3 className="text-lg md:text-xl font-bold">
                       Intern, Android Developer
@@ -377,15 +377,15 @@ export default function Portfolio() {
 
           <div className="relative flex flex-col md:flex-row items-start gap-4 md:gap-6">
             {/* Vertical line container for second experience */}
-            <div className="relative z-10 flex-shrink-0 hidden md:block">
+            <div className="relative z-10 shrink-0 hidden md:block">
               <div className="w-3 h-3 rounded-full bg-blue-500 border-2 border-black"></div>
               <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-0.5 h-28 bg-blue-500"></div>
             </div>
             <div className="flex-1 flex flex-col md:flex-row gap-4 md:gap-40">
-              <div className="md:w-80 md:pr-6 flex-shrink-0">
+              <div className="md:w-80 md:pr-6 shrink-0">
                 <div className="flex items-center gap-3 md:block">
                   {/* Mobile timeline dot */}
-                  <div className="w-3 h-3 rounded-full bg-blue-500 border-2 border-black md:hidden flex-shrink-0"></div>
+                  <div className="w-3 h-3 rounded-full bg-blue-500 border-2 border-black md:hidden shrink-0"></div>
                   <div>
                     <h3 className="text-lg md:text-xl font-bold">
                       Freelancer 3D Artist
@@ -467,7 +467,7 @@ export default function Portfolio() {
               </div>
             </div>
           </div>
-          <div className="flex-shrink-0 w-[300px] h-[300px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] relative mx-auto order-1 lg:order-2">
+          <div className="shrink-0 w-[300px] h-[300px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] relative mx-auto order-1 lg:order-2">
             <div className="absolute inset-0 rounded-full overflow-hidden">
               <Image
                 src="/images/dp.jpg"
