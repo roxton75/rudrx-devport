@@ -1,14 +1,10 @@
 {
-  "name": "my-portfolio",
+  "name": "rudrx-devport",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-<<<<<<< HEAD
-    "build": "next build",  
-=======
     "build": "next build",
->>>>>>> 1358443f86469fcbe7251825522c8e2bfd98add0
     "start": "next start",
     "lint": "next lint"
   },
@@ -23,10 +19,10 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-<<<<<<< HEAD
+
     "@netlify/plugin-nextjs": "^5.15.1",
-=======
->>>>>>> 1358443f86469fcbe7251825522c8e2bfd98add0
+
+
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

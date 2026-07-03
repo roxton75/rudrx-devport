@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+// Suppress missing type declarations for CSS module side-effect import
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 import "./globals.css";
 
 const geistSans = Geist({
@@ -26,10 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-<<<<<<< HEAD
         suppressHydrationWarning={true}
-=======
->>>>>>> 1358443f86469fcbe7251825522c8e2bfd98add0
       >
         {children}
       </body>
