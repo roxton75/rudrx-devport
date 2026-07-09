@@ -511,7 +511,7 @@ export default function Portfolio() {
             {
               title: "Bubble Brew",
               description:
-                "A mobile app for ordering and managing bubble tea orders, built with React Native. It features a user-friendly interface, customizable drink options, and real-time order tracking.",
+                "A mobile POS app for ordering and managing bubble tea orders, built with React Native. It features a user-friendly interface, customizable menu options, real-time order tracking and billing.",
               link: "https://github.com/roxton75/BubbleBrew-Expo-React-Native",
             },
             {
