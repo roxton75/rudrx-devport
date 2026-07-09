@@ -472,8 +472,10 @@ export default function Portfolio() {
                   Interests:
                 </h3>
                 <ul className="space-y-1 text-sm md:text-base">
+                  <li className="text-cyan-400">• Product Design</li>
                   <li className="text-cyan-400">• Web Development</li>
-                  <li className="text-cyan-400">• Android Development</li>
+                  <li className="text-cyan-400">• Mobile Development</li>
+                  <li className="text-cyan-400">• 3D Design</li>
                   <li className="text-cyan-400">• Graphic Designing</li>
                 </ul>
               </div>
