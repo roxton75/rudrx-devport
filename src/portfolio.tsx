@@ -526,7 +526,7 @@ export default function Portfolio() {
               <h3 className="text-lg md:text-xl font-bold mb-3 md:mb-4">
                 {project.title}
               </h3>
-              <p className="text-gray-400 mb-4 md:mb-6 text-justify text-sm md:text-base">
+              <p className="text-gray-400 mb-4 md:mb-6 text-sm md:text-base">
                 {project.description}
               </p>
               <Link
