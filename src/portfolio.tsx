@@ -501,10 +501,10 @@ export default function Portfolio() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {[
             {
-              title: "Text-to-Speech",
+              title: "Smart Switch",
               description:
-                "This project was built in Python using pyttsx3 & tkinter libraries. It performs text-to-speech using the system voice and pitch with a simple GUI.",
-              link: "https://github.com/roxton75/Text-to-Speech-in-Python",
+                "A smart home automation project that allows users to control their home appliances remotely using a mobile app. It features real-time monitoring with ESP32 controller and Firebase.",
+              link: "https://github.com/roxton75/Smart-Switch",
             },
             {
               title: "Bubble Brew",
@@ -513,10 +513,10 @@ export default function Portfolio() {
               link: "https://github.com/roxton75/BubbleBrew-Expo-React-Native",
             },
             {
-              title: "Image Steganography",
+              title: "Quite Desk",
               description:
-                "A Python-based tool that hides a secret image in a cover image using LSB technique. It includes GUI, encoding, and decoding features.",
-              link: "https://github.com/roxton75/Image-Steganography-in-Python",
+                "A desktop application that helps users manage their tasks and stay focused. It includes features motion detectionn using accelerometer, task reminders, and a distraction-free mode.",
+              link: "https://github.com/roxton75/QuiteDesk",
             },
           ].map((project) => (
             <div
