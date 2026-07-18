@@ -262,7 +262,7 @@ export default function Portfolio() {
             Hi my name is <span className="text-purple-500">Rudraksh</span>
           </h1>
           <h2 className="text-xl md:text-2xl lg:text-3xl">
-            I&apos;m a React Native eveloper & a{" "}
+            I&apos;m a React Native developer & a{" "}
             <span className="text-emerald-400" ref={typedRef}></span>
           </h2>
           <h3 className="text-lg md:text-xl lg:text-2xl">
