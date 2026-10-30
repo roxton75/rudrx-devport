@@ -15,8 +15,9 @@
 
 # next.js
 /.next/
+
 # .gitignore
-#out/
+out/
 
 # production
 /build
