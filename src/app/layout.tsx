@@ -1,51 +1,28 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+// Space Grotesk: A modern, geometric sans-serif font (Satoshi-style) for headings
+const headingFont = Space_Grotesk({
+  variable: "--font-heading",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["600", "700"],
   display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+// Inter: A clean, subtle, highly legible sans-serif for body text
+const bodyFont = Inter({
+  variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Rudraksh Ramekar — React Native & Software Developer",
+  title: "Rudrx-DevPort",
   description:
-    "Portfolio of Rudraksh Ramekar (rudrx75), a React Native and software developer building cross-platform mobile and web applications with practical, user-focused design.",
-  keywords: [
-    "Rudraksh Ramekar",
-    "rudrx75",
-    "React Native Developer",
-    "Mobile Developer",
-    "Expo",
-    "TypeScript",
-    "Next.js",
-    "Software Engineer",
-  ],
-  authors: [{ name: "Rudraksh Ramekar", url: "https://github.com/roxton75" }],
-  openGraph: {
-    title: "Rudraksh Ramekar — React Native & Software Developer",
-    description:
-      "Cross-platform mobile apps, React Native, Expo, TypeScript & web development.",
-    url: "https://rudrx-devport.netlify.app/",
-    siteName: "Rudrx Devport",
-    type: "website",
-  },
+    "Portfolio of Rudraksh Ramekar, a React Native and software developer building cross-platform mobile and web applications.",
 };
 
 export default function RootLayout({
@@ -54,9 +31,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en">
       <body
-        className={`${spaceGrotesk.variable} ${inter.variable} ${geistMono.variable} bg-[#08090A] text-[#F5F5F5] antialiased selection:bg-[#00D9F5]/20 selection:text-[#00D9F5]`}
+        className={`${headingFont.variable} ${bodyFont.variable} antialiased`}
         suppressHydrationWarning={true}
       >
         {children}
