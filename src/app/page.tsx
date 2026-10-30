@@ -1,5 +1,10 @@
-import Portfolio from "../portfolio"
+import Portfolio from "../portfolio";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export default function Page() {
-  return <Portfolio />
+  return (
+    <SmoothScroll>
+      <Portfolio />
+    </SmoothScroll>
+  );
 }

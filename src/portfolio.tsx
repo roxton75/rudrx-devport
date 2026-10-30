@@ -17,6 +17,7 @@ import Script from "next/script";
 import { Toast } from "./components/toast";
 import Typed from "typed.js";
 import emailjs from "@emailjs/browser";
+import Reveal from "./components/Reveal";
 
 declare global {
   interface Window {
@@ -326,60 +327,65 @@ export default function Portfolio() {
       <div className="w-full border-t border-zinc-800" />
 
       <section className="py-12 md:py-20 container mx-auto px-4">
-        <div className="space-y-2 mb-8 md:mb-12">
-          <p className="text-gray-400 text-sm md:text-base">
-            What I&apos;ve done so far
-          </p>
-          <h2 className="text-2xl md:text-3xl font-bold">Work Experience</h2>
-        </div>
+        <Reveal>
+          <div className="space-y-2 mb-8 md:mb-12">
+            <p className="text-gray-400 text-sm md:text-base">
+              What I&apos;ve done so far
+            </p>
+            <h2 className="text-2xl md:text-3xl font-bold">Work Experience</h2>
+          </div>
+        </Reveal>
 
         <div className="space-y-8 md:space-y-12">
-          <div className="relative flex flex-col md:flex-row items-start gap-4 md:gap-6">
-            <div className="relative z-10 shrink-0 hidden md:block">
-              <div className="w-3 h-3 rounded-full bg-blue-500 border-2 border-black"></div>
-              <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-0.5 h-48 bg-blue-500"></div>
-            </div>
+          <Reveal delay={0.1}>
+            <div className="relative flex flex-col md:flex-row items-start gap-4 md:gap-6">
+              <div className="relative z-10 shrink-0 hidden md:block">
+                <div className="w-3 h-3 rounded-full bg-blue-500 border-2 border-black"></div>
+                <div className="absolute top-3 left-1/2 transform -translate-x-1/2 w-0.5 h-48 bg-blue-500"></div>
+              </div>
 
-            <div className="flex-1 flex flex-col md:flex-row gap-4 md:gap-40">
-              <div className="md:w-80 md:pr-6 shrink-0">
-                <div className="flex items-center gap-3 md:block">
-                  <div className="w-3 h-3 rounded-full bg-blue-500 border-2 border-black md:hidden shrink-0"></div>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-bold">
-                      Mobile Application Developer
-                    </h3>
-                    <p className="text-gray-400 text-sm md:text-base">
-                      ANIX AI
-                    </p>
-                    <p className="text-gray-400 text-sm md:text-base">
-                      July 2026 - October 2026
-                    </p>
+              <div className="flex-1 flex flex-col md:flex-row gap-4 md:gap-40">
+                <div className="md:w-80 md:pr-6 shrink-0">
+                  <div className="flex items-center gap-3 md:block">
+                    <div className="w-3 h-3 rounded-full bg-blue-500 border-2 border-black md:hidden shrink-0"></div>
+                    <div>
+                      <h3 className="text-lg md:text-xl font-bold">
+                        Mobile Application Developer
+                      </h3>
+                      <p className="text-gray-400 text-sm md:text-base">
+                        ANIX AI
+                      </p>
+                      <p className="text-gray-400 text-sm md:text-base">
+                        July 2026 - October 2026
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="flex-1 space-y-2 text-gray-300 text-sm md:text-base ml-6 md:ml-0">
-                <p className="mb-2">
-                  Developed the KATIC LMS mobile application using React Native,
-                  Expo, and TypeScript.
-                </p>
-                <p>
-                  • Built course discovery, enrollment, learning, progress
-                  tracking, certificates, and video learning features with
-                  playback controls.
-                </p>
-                <p>
-                  • Integrated REST APIs for authentication, courses,
-                  enrollments, progress, certificates, and media.
-                </p>
-                <p>
-                  • Built reusable, responsive UI components with consistent
-                  theming and cross-platform support.
-                </p>
+                <div className="flex-1 space-y-2 text-gray-300 text-sm md:text-base ml-6 md:ml-0">
+                  <p className="mb-2">
+                    Developed the KATIC LMS mobile application using React Native,
+                    Expo, and TypeScript.
+                  </p>
+                  <p>
+                    • Built course discovery, enrollment, learning, progress
+                    tracking, certificates, and video learning features with
+                    playback controls.
+                  </p>
+                  <p>
+                    • Integrated REST APIs for authentication, courses,
+                    enrollments, progress, certificates, and media.
+                  </p>
+                  <p>
+                    • Built reusable, responsive UI components with consistent
+                    theming and cross-platform support.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
+          </Reveal>
 
+          <Reveal delay={0.2}>
           <div className="relative flex flex-col md:flex-row items-start gap-4 md:gap-6">
             <div className="relative z-10 shrink-0 hidden md:block">
               <div className="w-3 h-3 rounded-full bg-blue-500 border-2 border-black"></div>
@@ -418,16 +424,20 @@ export default function Portfolio() {
               </div>
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
       <div className="w-full border-t border-zinc-800" />
 
       <section id="about" className="py-12 md:py-20 container mx-auto px-4">
-        <div className="space-y-2 mb-8 md:mb-12">
-          <p className="text-gray-400 text-sm md:text-base">You need to know</p>
-          <h2 className="text-2xl md:text-3xl font-bold">About me</h2>
-        </div>
+        <Reveal>
+          <div className="space-y-2 mb-8 md:mb-12">
+            <p className="text-gray-400 text-sm md:text-base">You need to know</p>
+            <h2 className="text-2xl md:text-3xl font-bold">About me</h2>
+          </div>
+        </Reveal>
         <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-start">
+          <Reveal delay={0.1} y={20}>
           <div className="flex-1 space-y-4 md:space-y-6 order-2 lg:order-1">
             <p className="text-gray-300 leading-relaxed text-justify text-sm md:text-base">
               I&apos;m a software developer and engineering student passionate
@@ -474,6 +484,8 @@ export default function Portfolio() {
               </div>
             </div>
           </div>
+          </Reveal>
+          <Reveal delay={0.2} y={20}>
           <div className="shrink-0 w-[300px] h-[300px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] relative mx-auto order-1 lg:order-2">
             <div className="absolute inset-0 rounded-full overflow-hidden">
               <Image
@@ -484,14 +496,17 @@ export default function Portfolio() {
               />
             </div>
           </div>
+          </Reveal>
         </div>
       </section>
       <div className="w-full border-t border-zinc-800" />
 
       <section id="projects" className="py-12 md:py-20 container mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">
-          Projects
-        </h2>
+        <Reveal>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 md:mb-12">
+            Projects
+          </h2>
+        </Reveal>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {[
             {
@@ -543,10 +558,10 @@ export default function Portfolio() {
               ],
               link: "https://github.com/roxton75/BubbleBrew-Expo-React-Native",
             },
-          ].map((project) => (
+          ].map((project, index) => (
+            <Reveal key={project.title} delay={index * 0.1}>
             <div
-              key={project.title}
-              className="bg-zinc-900 rounded-lg p-4 md:p-6 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-lg hover:shadow-blue-500/20 flex flex-col"
+              className="bg-zinc-900 rounded-lg p-4 md:p-6 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-lg hover:shadow-blue-500/20 flex flex-col h-full"
             >
               <div className="mb-2">
                 <p className="text-cyan-400 text-xs md:text-sm font-medium">
@@ -589,16 +604,20 @@ export default function Portfolio() {
                 </Link>
               </div>
             </div>
+            </Reveal>
           ))}
         </div>
       </section>
       <div className="w-full border-t border-zinc-800" />
 
       <section id="contact" className="py-12 md:py-20 container mx-auto px-4">
-        <div className="space-y-2 mb-8 md:mb-12">
-          <p className="text-gray-400 text-sm md:text-base">Get in touch</p>
-          <h2 className="text-2xl md:text-3xl font-bold">Contact Me</h2>
-        </div>
+        <Reveal>
+          <div className="space-y-2 mb-8 md:mb-12">
+            <p className="text-gray-400 text-sm md:text-base">Get in touch</p>
+            <h2 className="text-2xl md:text-3xl font-bold">Contact Me</h2>
+          </div>
+        </Reveal>
+        <Reveal delay={0.1} y={20}>
         <div className="max-w-2xl mx-auto">
           <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
@@ -705,10 +724,12 @@ export default function Portfolio() {
             </div>
           </form>
         </div>
+        </Reveal>
       </section>
       <div className="w-full border-t border-zinc-800" />
 
       <footer className="py-6 bg-white">
+        <Reveal>
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center space-y-4">
             <Link href="/" className="text-xl md:text-2xl font-bold text-black">
@@ -745,6 +766,7 @@ export default function Portfolio() {
             </p>
           </div>
         </div>
+        </Reveal>
       </footer>
 
       <Toast
